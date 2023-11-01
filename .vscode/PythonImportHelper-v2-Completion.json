@@ -1,0 +1,64 @@
+[
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 2,
+        "importPath": "csv2mysql",
+        "description": "csv2mysql",
+        "peekOfCode": "def config():\n    \"\"\"\n    Prompts the user to enter database credentials and returns them as a tuple.\n    Returns:\n        tuple: A tuple containing the username, password, host, and database name.\n    \"\"\"\n    username = input(\"Enter username: \")\n    password = input(\"Enter password: \")\n    host = input(\"Enter host: \")\n    database_name = input(\"Enter database name: \")",
+        "detail": "csv2mysql",
+        "documentation": {}
+    },
+    {
+        "label": "get_file",
+        "kind": 2,
+        "importPath": "csv2mysql",
+        "description": "csv2mysql",
+        "peekOfCode": "def get_file():\n    \"\"\"\n    Prompts the user to enter the path of a CSV file and returns it.\n    Returns:\n        str: The path of the CSV file.\n    \"\"\"\n    return input(\"Enter csv file path: \")\ndef read_csv(csv_file):\n    \"\"\"\n    Reads a CSV file and returns a pandas DataFrame.",
+        "detail": "csv2mysql",
+        "documentation": {}
+    },
+    {
+        "label": "read_csv",
+        "kind": 2,
+        "importPath": "csv2mysql",
+        "description": "csv2mysql",
+        "peekOfCode": "def read_csv(csv_file):\n    \"\"\"\n    Reads a CSV file and returns a pandas DataFrame.\n    Args:\n        csv_file (str): The path of the CSV file.\n    Returns:\n        pandas.DataFrame: A pandas DataFrame containing the data from the CSV file.\n    \"\"\"\n    return pd.read_csv(csv_file)\ndef write2mysqldb(df, table_name, engine):",
+        "detail": "csv2mysql",
+        "documentation": {}
+    },
+    {
+        "label": "write2mysqldb",
+        "kind": 2,
+        "importPath": "csv2mysql",
+        "description": "csv2mysql",
+        "peekOfCode": "def write2mysqldb(df, table_name, engine):\n    \"\"\"\n    Writes a pandas DataFrame to a MySQL database table.\n    Args:\n        df (pandas.DataFrame): The pandas DataFrame to write to the database.\n        table_name (str): The name of the database table to write to.\n        engine (sqlalchemy.engine.base.Engine): The SQLAlchemy engine to use for the database connection.\n    \"\"\"\n    df.to_sql(name=table_name, con=engine, if_exists=\"replace\", index=False)\ndef main():",
+        "detail": "csv2mysql",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "csv2mysql",
+        "description": "csv2mysql",
+        "peekOfCode": "def main():\n    \"\"\"\n    The main function that prompts the user for input, reads a CSV file, writes the data to a MySQL database table,\n    and prints a message when done.\n    \"\"\"\n    username, password, host, database_name = config()\n    csv_file = get_file()\n    df = read_csv(csv_file)\n    engine = create_engine(\n        f\"mysql+pymysql://{username}:{password}@{host}/{database_name}\"",
+        "detail": "csv2mysql",
+        "documentation": {}
+    }
+]
